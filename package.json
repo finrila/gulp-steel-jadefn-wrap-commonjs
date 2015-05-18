@@ -1,6 +1,6 @@
 {
   "name": "gulp-steel-jadefn-wrap-commonjs",
-  "version": "0.0.1",
+  "version": "0.0.12",
   "description": "steel jadefn wrap commonjs",
   "license": "MIT",
   "repository": {
@@ -18,9 +18,6 @@
   "scripts": {
     "test": ""
   },
-  "files": [
-    "index.js"
-  ],
   "keywords": [
     "steel"
   ],
@@ -30,5 +27,6 @@
   },
   "devDependencies": {
   },
+  "main": "index.js",
   "homepage": "https://github.com/finrila/gulp-steel-jadefn-wrap-commonjs"
 }
