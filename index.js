@@ -1,6 +1,7 @@
 /**
  * steel jadefn wrap commonjs 
  * copy jade runtime file to src/js/tpl/ 
+ * @author Finrila finrila@gmail.com
  */
 
 var fs = require('fs');
