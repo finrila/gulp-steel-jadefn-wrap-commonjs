@@ -49,6 +49,10 @@ module.exports = function(options) {
     }
 
     return through.obj(Wrap_node, function(cb) {
+        if (!runtimeFile) {
+            cb();
+            return;
+        }
         runtimeFile.path = path.join(runtimeFile.base, runtimePath, 'runtime.js');
         runtimeFile.contents = new Buffer(fs.readFileSync(path.join(__dirname, './lib/jade/runtime.js'), 'utf-8'))
         this.push(runtimeFile);
