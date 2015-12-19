@@ -6,6 +6,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var jade = require('jade');
 var extend = require('util')._extend;
 var gutil = require('gulp-util');
 var ext = gutil.replaceExtension;
@@ -53,8 +54,13 @@ module.exports = function(options) {
             cb();
             return;
         }
-        runtimeFile.path = path.join(runtimeFile.base, runtimePath, 'runtime.js');
-        runtimeFile.contents = new Buffer(fs.readFileSync(path.join(__dirname, './lib/jade/runtime.js'), 'utf-8'))
+        var runtimeFileName = 'runtime.js';
+        var runtimeFileNameInLib = runtimeFileName;
+        if (jade.runtime.DebugItem) {
+            runtimeFileNameInLib = 'runtime-1.11.0.js';
+        }
+        runtimeFile.path = path.join(runtimeFile.base, runtimePath, runtimeFileName);
+        runtimeFile.contents = new Buffer(fs.readFileSync(path.join(__dirname, './lib/jade/' + runtimeFileNameInLib), 'utf-8'));
         this.push(runtimeFile);
         cb();
     });
